@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      k;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0.01;
+
+boundaryField
+{
+    door
+    {
+        type            kqRWallFunction;
+        value           nonuniform List<scalar> 0();
+    }
+    window
+    {
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity       0.01;
+        value           nonuniform List<scalar> 0();
+    }
+    fan
+    {
+        type            inletOutlet;
+        inletValue      nonuniform List<scalar> 0();
+        value           nonuniform List<scalar> 0();
+    }
+    constraint
+    {
+        type            symmetry;
+    }
+    wall
+    {
+        type            kqRWallFunction;
+        value           uniform 0.01;
+    }
+    defaultFaces
+    {
+        type            zeroGradient;
+    }
+    procBoundary4to0
+    {
+        type            processor;
+        value           uniform 0.01;
+    }
+    procBoundary4to2
+    {
+        type            processor;
+        value           uniform 0.01;
+    }
+    procBoundary4to5
+    {
+        type            processor;
+        value           uniform 0.01;
+    }
+    procBoundary4to6
+    {
+        type            processor;
+        value           uniform 0.01;
+    }
+    procBoundary4to7
+    {
+        type            processor;
+        value           uniform 0.01;
+    }
+}
+
+
+// ************************************************************************* //
