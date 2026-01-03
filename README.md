@@ -90,7 +90,7 @@ RAM: 16GB
 
 ### Running
 
-1. Create the model of the room using the Part Design workbench in FreeCAD. [Heres a cool tutorial](https://www.youtube.com/watch?v=E14m5hf6Pvo)
+1. Create the model of the room using the Part Design workbench in FreeCAD.
 2. Go to the CfdOF workbench and start a CFD analysis.
 3. Define the inlets, outlets, walls, and symmetry constraints using the `Fluid Boundary` option.
     a. The **exhaust** face is selected and defined as an outlet with uniform velocity of $1.14m/s$ in the Y-direction
@@ -121,6 +121,8 @@ RAM: 16GB
 
 ### Visualisation
 
+> Image guide below
+
 1. Click on the `ParaView` button in the `CfdSolver` task window to load up the results
 2. Change mode to 2D, and use the view direction buttons to select your view
 3. Change the data to Velocity `U` and mode to `Surface LIC`
@@ -135,9 +137,11 @@ You can now see the streamlines of the air flowing inside the room, along with t
 
 Here are some visualizations of the different simulation cases.
 
-| All Open | Door Open | Window Open |
-| :---: | :---: | :---: |
-| ![All Open](all_open.png) | ![Door Open](door_open.png) | ![Window Open](window_open.png) |
+| | |
+| :---: | :---: |
+| All Open | ![All Open](./misc/all_open.png) |
+| Door Open | ![Door Open](./misc/door_open.png) |
+| Window Open | ![Window Open](./misc/window_open.png) |
 
 As expected, keeping the open drastically improves the airflow, which is in line with my expectations. What is interesting to note is that half of the bathroom sees nearly zero outflow when the door is closed, which severly hurts airflow.
 
